@@ -19,17 +19,120 @@
 *,
 ::before,
 ::after {
+    box-sizing: border-box;
     margin    : 0;
     padding   : 0;
-    box-sizing: border-box;
 }
 
-/* font-family: "Big Shoulders Display",
-  sans-serif; */
-/* font-family: "Lexend Deca",
-sans-serif; */
+body {
+    align-items     : center;
+    background-color: var(--very-light-gray);
+    display         : flex;
+    flex-direction  : column;
+    font-family     : "Lexend Deca", sans-serif;
+    height          : 100vh;
+    justify-content : center;
+    width           : 100vw;
+}
+
+.card {
+    background-color     : crimson;
+    border-radius        : .5em;
+    display              : grid;
+    grid-auto-rows       : 100%;
+    grid-template-columns: repeat(3, 1fr);
+    height               : 30em;
+    overflow             : hidden;
+    width                : 50em;
+}
+
+.column {
+    display       : flex;
+    flex-direction: column;
+    gap           : 1.75em;
+    height        : 100%;
+    padding       : 3em;
+    width         : 100%;
+}
+
+.column .logo {
+    width: min-content;
+}
+
+.column .title {
+    color         : white;
+    font-family   : "Big Shoulders Display", sans-serif;
+    font-size     : 2em;
+    font-weight   : 700;
+    text-transform: uppercase;
+}
+
+.column .body-text {
+    color      : var(--transparent-white);
+    font-size  : .8em;
+    font-weight: 300;
+    line-height: 1.75em;
+}
+
+.column button {
+    border       : 2px solid white;
+    border-radius: 10em;
+    font-family  : "Lexend Deca", sans-serif;
+    font-weight  : 500;
+    height       : max-content;
+    outline      : 0;
+    padding      : 1em 2.25em;
+    position     : relative;
+    top          : 18%;
+    width        : max-content;
+}
+
+.column button:hover {
+    background-color: transparent;
+    border          : 2px solid white;
+    cursor          : pointer;
+    transition      : all ease-in-out .2s;
+}
+
+#column-1 {
+    background-color: var(--bright-orange);
+}
+
+#column-1 button {
+    color: var(--bright-orange);
+}
+
+#column-1 button:hover {
+    color: white;
+}
+
+#column-2 {
+    background-color: var(--dark-cyan);
+}
+
+#column-2 button {
+    color: var(--dark-cyan);
+}
+
+#column-2 button:hover {
+    color: white;
+}
+
+#column-3 {
+    background-color: var(--very-dark-cyan);
+}
+
+#column-3 button {
+    color: var(--very-dark-cyan);
+}
+
+#column-3 button:hover {
+    color: white;
+}
+
 .attribution {
     font-size : 1em;
+    margin-top: 2em;
     text-align: center;
 }
 
