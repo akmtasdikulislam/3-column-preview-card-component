@@ -30,9 +30,9 @@ body {
     display         : flex;
     flex-direction  : column;
     font-family     : "Lexend Deca", sans-serif;
-    height          : 100vh;
+    min-height      : 100vh;
     justify-content : center;
-    width           : 100vw;
+    min-width       : 100vw;
 }
 
 .card {
@@ -130,9 +130,40 @@ body {
     color: white;
 }
 
+@media (max-width: 375px) {
+    .card {
+        width             : 20em;
+        height            : 75em;
+        grid-auto-columns : 100%;
+        grid-auto-flow    : row;
+        grid-template-rows: repeat(3, 1fr);
+        margin-top        : 2em;
+    }
+
+    .column {
+        height: max-content;
+    }
+
+    #column-1 {
+        grid-row   : 1/2;
+        grid-column: 1/-1;
+    }
+
+    #column-2 {
+        grid-row   : 2/3;
+        grid-column: 1/-1;
+    }
+
+    #column-3 {
+        grid-row   : 3/-1;
+        grid-column: 1/-1;
+    }
+}
+
+
 .attribution {
     font-size : 1em;
-    margin-top: 2em;
+    margin    : 2em 0;
     text-align: center;
 }
 
