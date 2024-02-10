@@ -11,14 +11,12 @@ This is a solution to the [3-column preview card component challenge on Frontend
 - [My process](#my-process)
   - [Built with](#built-with)
   - [What I learned](#what-i-learned)
-  - [Continued development](#continued-development)
-  - [Useful resources](#useful-resources)
 - [Author](#author)
-- [Acknowledgments](#acknowledgments)
-
-**Note: Delete this note and update the table of contents based on what sections you keep.**
 
 ## Overview
+
+Project Start Date: 09 February 2024
+Project Duration: 02.5 Hours
 
 ### The challenge
 
@@ -29,22 +27,113 @@ Users should be able to:
 
 ### Screenshot
 
-![](./screenshot.jpg)
-
-Add a screenshot of your solution. The easiest way to do this is to use Firefox to view your project, right-click the page and select "Take a Screenshot". You can choose either a full-height screenshot or a cropped one based on how long the page is. If it's very long, it might be best to crop it.
-
-Alternatively, you can use a tool like [FireShot](https://getfireshot.com/) to take the screenshot. FireShot has a free option, so you don't need to purchase it.
-
-Then crop/optimize/edit your image however you like, add it to your project, and update the file path in the image above.
-
-**Note: Delete this note and the paragraphs above when you add your screenshot. If you prefer not to add a screenshot, feel free to remove this entire section.**
+![](./screenshots/desktop-version.jpeg)
+![](./screenshots/mobile-version.jpeg)
 
 ### Links
 
 - [Solution URL:](https://github.com/akmtasdikulislam/3-column-preview-card-component)
-- [Live Site URL:](https://your-live-site-url.com)
+- [Live Site URL:](https://akmtasdikulislam.github.io/3-column-preview-card-component/)
 
 ## My process
+
+- At first I've connected the `style.css` file and _Google Fonts CDN_ with `index.html`
+- Then imported the **css color variables** according to the _style-guide.md_
+- Then initialized the css file and added default height, width, font-family, font-size, font-weight, font-color and background-color to the `body` tag.
+- Then wrote necessary `html` code to build _desktop-version_ UI.
+
+  - Here, at first I built a **card** container within `<body>` tag.
+
+  ```html
+  <div class="card"></div>
+  ```
+
+  - Then, added 3 columns in it. Each of them having a numbered column _id_ and a common _column_ class.
+
+  ```html
+  <div class="card">
+    <div id="column-1" class="column"></div>
+    <div id="column-2" class="column"></div>
+    <div id="column-3" class="column"></div>
+  </div>
+  ```
+
+  - Then, I used _CSS Grid_ to divide the into 3 equal column which are having equal width and same height.
+
+  ```css
+  .card {
+    display: grid;
+    grid-auto-rows: 100%;
+    grid-template-columns: repeat(3, 1fr);
+    height: 30em;
+    width: 50em;
+  }
+  ```
+
+  - After doing these, I've wrote common _CSS styles_ to the _column_ class.
+
+  ```css
+  .column {
+    display: flex;
+    flex-direction: column;
+    gap: 1.75em;
+    height: 100%;
+    padding: 3em;
+    width: 100%;
+  }
+  ```
+
+  - Then I added _logo_, _title_, _body-text_ & a _Learn More_ button to each column.
+
+  ```html
+  <div id="column-1" class="column">
+    <img src="./images/icon-sedans.svg" alt="" class="logo" />
+    <p class="title">Sedans</p>
+    <p class="body-text">
+      Choose a sedan for its affordability and excellent fuel economy. Ideal for
+      cruising in the city or on your next road trip.
+    </p>
+    <button>Learn More</button>
+  </div>
+  ```
+
+  - When it's time to add css style,
+
+    - At first, I've targeted the _.logo_ to take its minimum width in the _column container_
+
+    ```css
+    .column .logo {
+      width: min-content;
+    }
+    ```
+
+    - After then, I targeted the _.title_ and assigned it with "Big Shoulders Display" font and required font-size, font-weight, color and transformed all letters to UPPERCASE to match the given UI Design Sample.
+
+    ```css
+    .column .title {
+      color: white;
+      font-family: "Big Shoulders Display", sans-serif;
+      font-size: 2em;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    ```
+
+    - Then also, did the same style work for the _.body-text_ class. Here additionally added `line-height` property to increase distance between lines.
+
+    ```css
+    .column .body-text {
+      color: var(--transparent-white);
+      font-size: 0.8em;
+      font-weight: 300;
+      line-height: 1.75em;
+    }
+    ```
+
+    - And then finally, designed the _Learn More_ button. To design this, its height & width is set to `max-content` so that it can display single line button text on any viewport.
+
+- And also wrote necessary `css` code to match as close as possible to the given _UI Design Sample_.
+- After completing the _desktop-version: UI Development_, I wrote ncessary css _media-queries_ to match the _mobile-version UI design_ of the project.
 
 ### Built with
 
@@ -52,12 +141,6 @@ Then crop/optimize/edit your image however you like, add it to your project, and
 - CSS custom properties
 - Flexbox
 - CSS Grid
-- Mobile-first workflow
-- [React](https://reactjs.org/) - JS library
-- [Next.js](https://nextjs.org/) - React framework
-- [Styled Components](https://styled-components.com/) - For styles
-
-**Note: These are just examples. Delete this note and replace the list above with your own choices**
 
 ### What I learned
 
@@ -83,30 +166,7 @@ const proudOfThisFunc = () => {
 
 If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
 
-**Note: Delete this note and the content within this section and replace with your own learnings.**
-
-### Continued development
-
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
-
-**Note: Delete this note and the content within this section and replace with your own plans for continued development.**
-
-### Useful resources
-
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
-
-**Note: Delete this note and replace the list above with resources that helped you during the challenge. These could come in handy for anyone viewing your solution or for yourself when you look back on this project in the future.**
-
 ## Author
 
 - Frontend Mentor - [@akmtasdikulislam](https://www.frontendmentor.io/profile/akmtasdikulislam)
 - Twitter - [@Akm_Tasdikul](https://www.twitter.com/@Akm_Tasdikul)
-
-**Note: Delete this note and add/remove/edit lines above based on what links you'd like to share.**
-
-## Acknowledgments
-
-This is where you can give a hat tip to anyone who helped you out on this project. Perhaps you worked in a team or got some inspiration from someone else's solution. This is the perfect place to give them some credit.
-
-**Note: Delete this note and edit this section's content as necessary. If you completed this challenge by yourself, feel free to delete this section entirely.**
