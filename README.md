@@ -1,92 +1,296 @@
-# Frontend Mentor - 3-column preview card component
+# Frontend Mentor - 3-column preview card component solution
 
-![Design preview for the 3-column preview card component coding challenge](./design/desktop-preview.jpg)
+This is a solution to the [3-column preview card component challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/3column-preview-card-component-pH92eAR2-). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
-## Welcome! 👋
+## Table of contents
 
-Thanks for checking out this front-end coding challenge.
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Screenshot](#screenshot)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [What I learned](#what-i-learned)
+- [Author](#author)
 
-[Frontend Mentor](https://www.frontendmentor.io) challenges help you improve your coding skills by building realistic projects.
+## Overview
 
-**To do this challenge, you need a basic understanding of HTML and CSS.**
+Project Start Date: 09 February 2024
+Project Duration: 02.5 Hours
 
-## The challenge
+### The challenge
 
-Your challenge is to build out this 3-column preview card component and get it looking as close to the design as possible.
-
-You can use any tools you like to help you complete the challenge. So if you've got something you'd like to practice, feel free to give it a go.
-
-Your users should be able to:
+Users should be able to:
 
 - View the optimal layout depending on their device's screen size
 - See hover states for interactive elements
 
-Want some support on the challenge? [Join our community](https://www.frontendmentor.io/community) and ask questions in the **#help** channel.
+### Screenshot
 
-## Where to find everything
+![](./screenshots/desktop-version.jpeg)
+![](./screenshots/mobile-version.jpeg)
 
-Your task is to build out the project to the designs inside the `/design` folder. You will find both a mobile and a desktop version of the design.
+### Links
 
-The designs are in JPG static format. Using JPGs will mean that you'll need to use your best judgment for styles such as `font-size`, `padding` and `margin`.
+- [Solution URL:](https://github.com/akmtasdikulislam/3-column-preview-card-component)
+- [Live Site URL:](https://akmtasdikulislam.github.io/3-column-preview-card-component/)
 
-If you would like the design files (we provide Sketch & Figma versions) to inspect the design in more detail, you can [subscribe as a PRO member](https://www.frontendmentor.io/pro).
+## My process
 
-You will find all the required assets in the `/images` folder. The assets are already optimized.
+- At first I've connected the `style.css` file and _Google Fonts CDN_ with `index.html`
+- Then imported the **css color variables** according to the _style-guide.md_
+- Then initialized the css file and added default height, width, font-family, font-size, font-weight, font-color and background-color to the `body` tag.
+- Then wrote necessary `html` code to build _desktop-version_ UI.
 
-There is also a `style-guide.md` file containing the information you'll need, such as color palette and fonts.
+  - Here, at first I built a **card** container within `<body>` tag.
 
-## Building your project
+  ```html
+  <div class="card"></div>
+  ```
 
-Feel free to use any workflow that you feel comfortable with. Below is a suggested process, but do not feel like you need to follow these steps:
+  - Then, added 3 columns in it. Each of them having a numbered column _id_ and a common _column_ class.
 
-1. Initialize your project as a public repository on [GitHub](https://github.com/). Creating a repo will make it easier to share your code with the community if you need help. If you're not sure how to do this, [have a read-through of this Try Git resource](https://try.github.io/).
-2. Configure your repository to publish your code to a web address. This will also be useful if you need some help during a challenge as you can share the URL for your project with your repo URL. There are a number of ways to do this, and we provide some recommendations below.
-3. Look through the designs to start planning out how you'll tackle the project. This step is crucial to help you think ahead for CSS classes to create reusable styles.
-4. Before adding any styles, structure your content with HTML. Writing your HTML first can help focus your attention on creating well-structured content.
-5. Write out the base styles for your project, including general content styles, such as `font-family` and `font-size`.
-6. Start adding styles to the top of the page and work down. Only move on to the next section once you're happy you've completed the area you're working on.
+  ```html
+  <div class="card">
+    <div id="column-1" class="column"></div>
+    <div id="column-2" class="column"></div>
+    <div id="column-3" class="column"></div>
+  </div>
+  ```
 
-## Deploying your project
+  - Then, I used _CSS Grid_ to divide the into 3 equal column which are having equal width and same height.
 
-As mentioned above, there are many ways to host your project for free. Our recommended hosts are:
+  ```css
+  .card {
+    display: grid;
+    grid-auto-rows: 100%;
+    grid-template-columns: repeat(3, 1fr);
+    height: 30em;
+    width: 50em;
+  }
+  ```
 
-- [GitHub Pages](https://pages.github.com/)
-- [Vercel](https://vercel.com/)
-- [Netlify](https://www.netlify.com/)
+  - After doing these, I've wrote common _CSS styles_ to the _column_ class.
 
-You can host your site using one of these solutions or any of our other trusted providers. [Read more about our recommended and trusted hosts](https://medium.com/frontend-mentor/frontend-mentor-trusted-hosting-providers-bf000dfebe).
+  ```css
+  .column {
+    display: flex;
+    flex-direction: column;
+    gap: 1.75em;
+    height: 100%;
+    padding: 3em;
+    width: 100%;
+  }
+  ```
 
-## Create a custom `README.md`
+  - Then I added _logo_, _title_, _body-text_ & a _Learn More_ button to each column.
 
-We strongly recommend overwriting this `README.md` with a custom one. We've provided a template inside the [`README-template.md`](./README-template.md) file in this starter code.
+  ```html
+  <div id="column-1" class="column">
+    <img src="./images/icon-sedans.svg" alt="" class="logo" />
+    <p class="title">Sedans</p>
+    <p class="body-text">
+      Choose a sedan for its affordability and excellent fuel economy. Ideal for
+      cruising in the city or on your next road trip.
+    </p>
+    <button>Learn More</button>
+  </div>
+  ```
 
-The template provides a guide for what to add. A custom `README` will help you explain your project and reflect on your learnings. Please feel free to edit our template as much as you like.
+  - When it's time to add css style,
 
-Once you've added your information to the template, delete this file and rename the `README-template.md` file to `README.md`. That will make it show up as your repository's README file.
+    - At first, I've targeted the _.logo_ to take its minimum width in the _column container_
 
-## Submitting your solution
+    ```css
+    .column .logo {
+      width: min-content;
+    }
+    ```
 
-Submit your solution on the platform for the rest of the community to see. Follow our ["Complete guide to submitting solutions"](https://medium.com/frontend-mentor/a-complete-guide-to-submitting-solutions-on-frontend-mentor-ac6384162248) for tips on how to do this.
+    - After then, I targeted the _.title_ and assigned it with "Big Shoulders Display" font and required font-size, font-weight, color and transformed all letters to UPPERCASE to match the given UI Design Sample.
 
-Remember, if you're looking for feedback on your solution, be sure to ask questions when submitting it. The more specific and detailed you are with your questions, the higher the chance you'll get valuable feedback from the community.
+    ```css
+    .column .title {
+      color: white;
+      font-family: "Big Shoulders Display", sans-serif;
+      font-size: 2em;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    ```
 
-## Sharing your solution
+    - Then also, did the same style work for the _.body-text_ class. Here additionally added `line-height` property to increase distance between lines.
 
-There are multiple places you can share your solution:
+    ```css
+    .column .body-text {
+      color: var(--transparent-white);
+      font-size: 0.8em;
+      font-weight: 300;
+      line-height: 1.75em;
+    }
+    ```
 
-1. Share your solution page in the **#finished-projects** channel of the [community](https://www.frontendmentor.io/community). 
-2. Tweet [@frontendmentor](https://twitter.com/frontendmentor) and mention **@frontendmentor**, including the repo and live URLs in the tweet. We'd love to take a look at what you've built and help share it around.
-3. Share your solution on other social channels like LinkedIn.
-4. Blog about your experience building your project. Writing about your workflow, technical choices, and talking through your code is a brilliant way to reinforce what you've learned. Great platforms to write on are [dev.to](https://dev.to/), [Hashnode](https://hashnode.com/), and [CodeNewbie](https://community.codenewbie.org/).
+    - And then finally, designed the _Learn More_ button.
 
-We provide templates to help you share your solution once you've submitted it on the platform. Please do edit them and include specific questions when you're looking for feedback.
+      - To design this, its height & width is set to `max-content` so that it can display single line button text on any viewport.
 
-The more specific you are with your questions the more likely it is that another member of the community will give you feedback.
+      ```css
+      .column button {
+        *height: max-content;
+        *width: max-content;
+      }
+      ```
 
-## Got feedback for us?
+      - Then I added padding. Here padding on each sides of the _button-text_ is almost double than the padding on the top & below of it to make a wide button.
 
-We love receiving feedback! We're always looking to improve our challenges and our platform. So if you have anything you'd like to mention, please email hi[at]frontendmentor[dot]io.
+      ```css
+      .column button {
+        height: max-content;
+        width: max-content;
+        *padding: 1em 2.25em;
+      }
+      ```
 
-This challenge is completely free. Please share it with anyone who will find it useful for practice.
+      - After, this necessary font-family & font-weight is added.
 
-**Have fun building!** 🚀
+      ```css
+      .column button {
+        height: max-content;
+        width: max-content;
+        padding: 1em 2.25em;
+        *font-family: "Lexend Deca", sans-serif;
+        *font-weight: 500;
+      }
+      ```
+
+      - Then, ouline was removed and added a white border within it. Also a little bit of rounded corner is added to it using _border-radius_.
+
+      ```css
+      .column button {
+        height: max-content;
+        width: max-content;
+        padding: 1em 2.25em;
+        font-family: "Lexend Deca", sans-serif;
+        font-weight: 500;
+        *outline: 0;
+        *border: 2px solid white;
+        *border-radius: 10em;
+      }
+      ```
+
+      - Finally, the button was positioned `relative` with its parent to push it somewhat donward from the top to match the UI Design Sample.
+
+      ```css
+      .column button {
+        height: max-content;
+        width: max-content;
+        padding: 1em 2.25em;
+        font-family: "Lexend Deca", sans-serif;
+        font-weight: 500;
+        outline: 0;
+        border: 2px solid white;
+        border-radius: 10em;
+        *position: relative;
+        *top: 18%;
+      }
+      ```
+
+    - At last, added necessary _hover effect_ for the **active-state** of the button. Here, first of all a transparent background was set, then a _pointer_ cursor was set to appear on hover and finally a transition was added to visualize a smooth change of button state.
+
+    ```css
+    .column button:hover {
+      background-color: transparent;
+      cursor: pointer;
+      transition: all ease-in-out 0.2s;
+    }
+    ```
+
+  - Then, I target each column through their respective _id_ and styled it to match the UI Design Sample.
+
+  ```css
+  #column-1 {
+    background-color: var(--bright-orange);
+  }
+  #column-1 button {
+    color: var(--bright-orange);
+  }
+  #column-1 button:hover {
+    color: white;
+  }
+
+  #column-2 {
+    background-color: var(--dark-cyan);
+  }
+  #column-2 button {
+    color: var(--dark-cyan);
+  }
+  #column-2 button:hover {
+    color: white;
+  }
+
+  #column-3 {
+    background-color: var(--very-dark-cyan);
+  }
+  #column-3 button {
+    color: var(--very-dark-cyan);
+  }
+  #column-3 button:hover {
+    color: white;
+  }
+  ```
+
+- After completing the _desktop-version: UI Development_, I wrote ncessary css _media-queries_ to match the _mobile-version UI design_ of the project. Here, at first redesigned the card container and assigned it css grid property then touched every column and positioned them to follow the given mobile-version:UI Design Sample.
+
+```css
+@media (max-width: 375px) {
+  .card {
+    width: 20em;
+    height: 75em;
+    grid-auto-columns: 100%;
+    grid-auto-flow: row;
+    grid-template-rows: repeat(3, 1fr);
+    margin-top: 2em;
+  }
+
+  .column {
+    height: max-content;
+  }
+
+  #column-1 {
+    grid-row: 1/2;
+    grid-column: 1/-1;
+  }
+
+  #column-2 {
+    grid-row: 2/3;
+    grid-column: 1/-1;
+  }
+
+  #column-3 {
+    grid-row: 3/-1;
+    grid-column: 1/-1;
+  }
+}
+```
+
+### Built with
+
+- Semantic HTML5 markup
+- CSS custom properties
+- Flexbox
+- CSS Grid
+
+### What I learned
+
+By doing this project, I've learned to use the following _css GRID properties_"
+
+1. grid-row
+2. grid-column
+3. grid-template-column
+4. grid-auto-rows
+5. grid-auto-flow
+
+## Author
+
+- Frontend Mentor - [@akmtasdikulislam](https://www.frontendmentor.io/profile/akmtasdikulislam)
+- Twitter - [@Akm_Tasdikul](https://www.twitter.com/@Akm_Tasdikul)
